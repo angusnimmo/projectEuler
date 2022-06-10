@@ -2,7 +2,7 @@ from math import sqrt
 
 n = 2000000
 x = list(range(2, n))
-y = list(range(2, int(sqrt(n)) + 2))
+y = list(range(2, int(sqrt(n))))
 
 nonPrimes = []
 
