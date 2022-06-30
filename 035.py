@@ -1,6 +1,6 @@
 from math import sqrt
 
-def seivePrimes(pMax):
+def sievePrimes(pMax):
     x = list(range(2, pMax))
     y = list(range(2, int(sqrt(pMax))))
     composites = []
@@ -14,7 +14,7 @@ def seivePrimes(pMax):
     
     return primes
     
-primes = seivePrimes(1000000)
+primes = sievePrimes(1000000)
 nonCircularPrimes = []
 
 for i in primes[5:]:
