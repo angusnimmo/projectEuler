@@ -1,5 +1,3 @@
-import bisect
-import itertools
 import numpy as np
 from math import sqrt
 
@@ -32,18 +30,14 @@ prime = 0
 primeIndex = 0
 
 for i in range(len(primes)):
-    tempCumsum = list(np.cumsum(primes[i:]))
-    checkSearch = bisect.bisect_left(tempCumsum, limit)
-    checkArray = [i for i in tempCumsum[primeIndex:checkSearch] if isPrime(i)]
-    
-    if len(checkArray) > 0:
-        checkPrime = max(checkArray)
+    for j in range(i + primeIndex, len(primes)):
+        checkSum = primesCumsum[j] - primesCumsum[i]
         
-    if checkPrime in tempCumsum:
-        checkIndex = tempCumsum.index(checkPrime)
-    
-    if checkIndex > primeIndex:
-        prime = checkPrime
-        primeIndex = checkIndex
+        if checkSum >= limit:
+            break
+        
+        if isPrime(checkSum):
+            prime = checkSum
+            primeIndex = j-i  
         
 print(prime)
