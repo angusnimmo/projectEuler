@@ -29,8 +29,8 @@ primesCumsum = list(np.cumsum(primes))
 prime = 0
 primeIndex = 0
 
-for i in range(len(primes)):
-    for j in range(i + primeIndex, len(primes)):
+for i in range(len(primesCumsum)):
+    for j in range(i + primeIndex, len(primesCumsum)):
         checkSum = primesCumsum[j] - primesCumsum[i]
         
         if checkSum >= limit:
