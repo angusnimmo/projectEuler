@@ -1,18 +1,13 @@
-import sys
-from fractions import Fraction
+count = 0
 
-def continuedFraction(iteration):
-    if iteration == 0:
-        return Fraction(1, 2)
-    else:
-        return Fraction(1, 2 + continuedFraction(iteration - 1))
+numerator = 3
+denominator = 2
+
+for i in range(1000):
+    numerator += 2 * denominator
+    denominator = numerator - denominator
+    
+    if len(str(numerator)) > len(str(denominator)):
+        count += 1
         
-def rootTwoSeries(x):
-    return 1 + continuedFraction(x)
-    
-def numLongerThanDenom(x):
-    return len(str(x.numerator)) > len(str(x.denominator))
-    
-if __name__ == "__main__":
-    sys.setrecursionlimit(3000)
-    print(len([i for i in range(1000) if numLongerThanDenom(rootTwoSeries(i))]))
+print(count)
