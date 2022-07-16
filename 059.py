@@ -15,7 +15,6 @@ keysCycle = [itertools.cycle(i) for i in keys]
 keys = [[next(i) for j in range(size)] for i in keysCycle]
 
 decryption = [''.join([chr(cipherText[i] ^ j[i]) for i in range(size)]) for j in keys]
-decryption = [i for i in decryption if 'the' in i]
 
 wikiUrl = 'https://en.wikipedia.org/wiki/Most_common_words_in_English'
 wikiHtml = requests.get(wikiUrl)
