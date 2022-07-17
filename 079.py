@@ -14,6 +14,7 @@ if __name__ == "__main__":
     keylogs = requests.get('https://projecteuler.net/project/resources/p079_keylog.txt').text
     keylogs = keylogs.split('\n')
     keylogs = keylogs[:-1]
+    keylogs = list(set(keylogs))
     digits = ''.join(set(''.join(keylogs)))
     passcodes = [''.join(i) for i in itertools.permutations(digits)]
     print([i for i in passcodes if passcodeCheck(i)])
