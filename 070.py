@@ -22,10 +22,7 @@ def main():
                     minimum = temp
                     result = n
                     
-        if n == 9903967:
-            print(p1, p2)
-                    
-    print(result, minimum)
+    print(result)
     print(datetime.now() - start_time)
     
     
